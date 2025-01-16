@@ -26,26 +26,32 @@ while (!isValidInput) // Loop until input is valid
             Console.WriteLine(i + ": " + percentage); // Display the roll number and the corresponding percentage
         }
 
-        Console.WriteLine("\nWould you like to throw the dice again? (Y/N)"); // Check if the user wants to restart the program
-        
-        string response = Console.ReadLine().ToUpper(); // Convert the response to uppercase for case-insensitive comparison
-        
-        if (response == "Y") // Restart the program if the user enters 'Y'
-        {
-            RestartProgram();
-        }
-        else if (response != "N") // Display an error message for invalid input
-        {
-            Console.WriteLine("Invalid input. Please enter 'Y' or 'N'.");
-        }
-        else // Exit the program if the user enters 'N'
-        {
-            Console.WriteLine("Thank you for using the Dice Throwing Simulator 9000!");
-        }
+        playAgain(); // Ask the user if they want to play again
     }
     else // Display an error message for invalid input
     {
         Console.WriteLine("Invalid input. Please enter a positive whole number.");
+    }
+}
+
+static void playAgain()
+{
+    Console.WriteLine("\nWould you like to throw the dice again? (Y/N)"); // Check if the user wants to restart the program
+
+    string response = Console.ReadLine().ToUpper(); // Convert the response to uppercase for case-insensitive comparison
+
+    if (response == "Y") // Restart the program if the user enters 'Y'
+    {
+        RestartProgram();
+    }
+    else if (response != "N") // Display an error message for invalid input
+    {
+        Console.WriteLine("Invalid input. Please enter 'Y' or 'N'.");
+        playAgain(); // Ask the user again for valid input
+    }
+    else // Exit the program if the user enters 'N'
+    {
+        Console.WriteLine("Thank you for using the Dice Throwing Simulator 9000!");
     }
 }
 
