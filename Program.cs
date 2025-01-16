@@ -16,6 +16,7 @@ while (!isValidInput) // Loop until input is valid
     if (success && dieRolls > 0) // Ensure a positive number
     {
         isValidInput = true; // Exit the loop if input is valid
+        
         int[] rollResults = rollSimulator.SimulateRolls(dieRolls); // Call the SimulateRolls method and assign the result to rollResults
         int[] rollPercentage = rollResults.Select(x => x * 100 / dieRolls).ToArray(); // Calculate the percentage of each roll
 
@@ -26,7 +27,9 @@ while (!isValidInput) // Loop until input is valid
         }
 
         Console.WriteLine("\nWould you like to throw the dice again? (Y/N)"); // Check if the user wants to restart the program
+        
         string response = Console.ReadLine().ToUpper(); // Convert the response to uppercase for case-insensitive comparison
+        
         if (response == "Y") // Restart the program if the user enters 'Y'
         {
             RestartProgram();

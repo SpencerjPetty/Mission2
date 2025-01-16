@@ -11,7 +11,9 @@ namespace Mission2
         public static int[] SimulateRolls(int dieRolls) // Method to simulate dice rolls
         {
             Random random = new Random(); // Create a new instance of the Random class
+
             int[] rolls = new int[13]; // Create an array to store the roll results
+
             for (int i = 0; i < dieRolls; i++) // Loop through the number of die rolls
             {
                 int tempRoll1 = random.Next(1, 7);// Generate a random number between 1 and 6 for the first die
